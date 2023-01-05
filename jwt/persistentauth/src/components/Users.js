@@ -18,12 +18,9 @@ const Users = () => {
                     signal: controller.signal
                 });
                 console.log(response.data);
-                // set the user list on response success
                 isMounted && setUsers(response.data);
             } catch (err) {
                 console.error(err);
-                // take back to the location where was in (admin page) .. 
-                // .. at the time session got expierd (access Token)
                 navigate('/login', { state: { from: location }, replace: true });
             }
         }

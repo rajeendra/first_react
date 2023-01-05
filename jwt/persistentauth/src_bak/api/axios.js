@@ -5,7 +5,6 @@ export default axios.create({
     baseURL: BASE_URL
 });
 
-// axios to handle protected route with access token 
 export const axiosPrivate = axios.create({
     baseURL: BASE_URL,
     headers: { 'Content-Type': 'application/json' },

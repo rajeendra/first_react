@@ -8,7 +8,7 @@ const useAxiosPrivate = () => {
     const { auth } = useAuth();
 
     useEffect(() => {
-        // send request with access token to protected routes 
+
         const requestIntercept = axiosPrivate.interceptors.request.use(
             config => {
                 if (!config.headers['Authorization']) {
@@ -23,12 +23,8 @@ const useAxiosPrivate = () => {
             async (error) => {
                 const prevRequest = error?.config;
                 if (error?.response?.status === 403 && !prevRequest?.sent) {
-                    // issue a new access token for expierd but refresh token issueed..
-                    // .. not yet expired
                     prevRequest.sent = true;
-                    // Fetch new access token
                     const newAccessToken = await refresh();
-                    // set new access token recived in previous request header
                     prevRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                     return axiosPrivate(prevRequest);
                 }

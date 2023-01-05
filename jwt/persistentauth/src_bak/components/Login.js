@@ -45,7 +45,6 @@ const Login = () => {
             setAuth({ user, pwd, roles, accessToken });
             setUser('');
             setPwd('');
-            // Navigate back to the location where Login/Auth called
             navigate(from, { replace: true });
         } catch (err) {
             if (!err?.response) {
