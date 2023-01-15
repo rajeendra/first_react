@@ -2,7 +2,7 @@
 
 **Note:**
 
-backend nodejs code @ /first_nodejs/mongo_async_crud repo need to up 
+backend nodejs code @ /first_nodejs/mongo_async_crud repo need to spin up 
 
 ### Academic Honesty
 
